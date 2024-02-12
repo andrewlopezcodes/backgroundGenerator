@@ -13,15 +13,29 @@ h1 {
   color: rgba(0,0,0,.5);
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: .5em;
   width: 100%;
 }
 
 
 
 h3 {
+  font: 'Roboto', sans-serif;
   color: rgba(0,0,0,.5);
   text-align: center;
   text-transform: none;
-  letter-spacing: 0.01em;
+}
+
+p {
+  font: 'Roboto', sans-serif;
+  font-weight: 500 .25em;
+  color: rgba(0,0,0,.5);
+  text-align:center;
+  /* margin: 0 33%; */
+  text-transform: none;
+  letter-spacing:normal;
+  top: 15%;
+}
+
+.changeDisplay {
+  margin: 0;
 }

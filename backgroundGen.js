@@ -1,5 +1,5 @@
 let bodyItem = document.querySelector("#documentBody");
-let currentCssBackground = document.querySelector("h3");
+let currentCssBackground = document.querySelector(".changeDisplay");
 let leftColorSelector = document.querySelector(".leftColorPicker");
 let rightColorSelector = document.querySelector(".rightColorPicker");
 
@@ -12,7 +12,7 @@ function initialCSSBackgroundStatement (){
     + ", "
     + initialRightColor;
   
-    currentCssBackground.textContent = bodyItem.style.background + ";";
+    currentCssBackground.textContent = "     " + bodyItem.style.background + ";";
 
 }
 
