@@ -3,6 +3,8 @@ let currentCssBackground = document.querySelector(".changeDisplay");
 let leftColorSelector = document.querySelector(".leftColorPicker");
 let rightColorSelector = document.querySelector(".rightColorPicker");
 let randomBackgroundButton = document.querySelector(".feelingLucky");
+let leftRandomColorPicker = document.querySelector(".leftColorPickerRandom")
+let rightRandomColorPicker = document.querySelector(".rightColorPickerRandom");
 let colorNumbers = [];
 let randomLeftColor;
 let randomRightColor;
@@ -16,10 +18,9 @@ function initialCSSBackgroundStatement (){
      "linear-gradient(to right,"
     + initialLeftColor
     + ", "
-    + initialRightColor;
-  
-    currentCssBackground.textContent = "     " + bodyItem.style.background + ";";
-
+    + initialRightColor
+  ;
+  currentCssBackground.textContent = "     " + bodyItem.style.background + ";";
 }
 
 
@@ -36,41 +37,38 @@ let changeBackgroundColor = function(){
 };
 
 function getRandomNumbers(){
-  function randomNumberGenerator (min, max){
-    return Math.floor(Math.random()* (min - max + 1)) + min;
-  };
-
-  for(let index = 0; index < 6; index++){
+  for(let index = 0; index < 3; index++){
    colorNumbers.push( Math.floor(Math.random() * 250));
-    console.log(colorNumbers);
   };
-
 };
+
+let changeRGBToHeX = (r, g, b) => '#' + [r, g, b].map(
+    function(x){
+      const hex = x.toString(16)
+      return hex.length === 1 ? '0' + hex : hex
+    }
+).join('');
 
 function getLeftRandomRGB(){
   let leftRedNumber = colorNumbers[0];
   let leftGreenNumber = colorNumbers[1];
   let leftBlueNumber = colorNumbers[2];
- 
-  randomLeftColor = "rgb("  + leftRedNumber + ", " 
-                            + leftGreenNumber + ", " 
-                            + leftBlueNumber
-                            + ")";
+  randomLeftColor = changeRGBToHeX(leftRedNumber, leftGreenNumber, leftBlueNumber);
+  colorNumbers = [];
   return randomLeftColor;
 };
 
 function getRightRandomRGB(){
-let rightRedNumber = colorNumbers[3];
-let rightGreenNumber = colorNumbers[4];
-let rightBlueNumber = colorNumbers[5];
-
-randomRightColor = "rgb(" + rightRedNumber + ", " 
-                          + rightGreenNumber + ", " 
-                          + rightBlueNumber
-                          + ")";
-colorNumbers=[];
-return randomRightColor;                          
+  getRandomNumbers();
+  let rightRedNumber = colorNumbers[0];
+  let rightGreenNumber = colorNumbers[1];
+  let rightBlueNumber = colorNumbers[2];
+  randomRightColor = changeRGBToHeX(rightRedNumber, rightGreenNumber, rightBlueNumber);
+  colorNumbers=[];
+  return randomRightColor;                          
 };
+
+
 
 function feelingLuckyPressed (){
   getRandomNumbers();
@@ -82,6 +80,8 @@ function feelingLuckyPressed (){
     + ", "
     + randomRightColor
     + ")";
+  leftRandomColorPicker.value = randomLeftColor;
+  rightRandomColorPicker.value = randomRightColor;
   currentCssBackground.textContent = bodyItem.style.background + ";";
   
 }
