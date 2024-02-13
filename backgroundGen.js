@@ -10,7 +10,6 @@ let randomLeftColor;
 let randomRightColor;
 
 
-
 function initialCSSBackgroundStatement (){
   let initialLeftColor = leftColorSelector.value;
   let initialRightColor = rightColorSelector.value;
@@ -22,8 +21,6 @@ function initialCSSBackgroundStatement (){
   ;
   currentCssBackground.textContent = "     " + bodyItem.style.background + ";";
 }
-
-
 
 let changeBackgroundColor = function(){
   bodyItem.style.background = 
@@ -68,8 +65,6 @@ function getRightRandomRGB(){
   return randomRightColor;                          
 };
 
-
-
 function feelingLuckyPressed (){
   getRandomNumbers();
   getLeftRandomRGB();
@@ -83,7 +78,6 @@ function feelingLuckyPressed (){
   leftRandomColorPicker.value = randomLeftColor;
   rightRandomColorPicker.value = randomRightColor;
   currentCssBackground.textContent = bodyItem.style.background + ";";
-  
 }
 
 leftColorSelector.addEventListener("input", changeBackgroundColor);
@@ -94,6 +88,4 @@ randomBackgroundButton.addEventListener("click", feelingLuckyPressed);
 
 initialCSSBackgroundStatement();
 
-
-
-
+//written by @andrewlopezcodes
